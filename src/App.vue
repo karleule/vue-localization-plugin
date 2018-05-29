@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-container fill-height>
+      <v-layout align-center justify-center>
+        <div>
+          <div>
+            {{$root.$i18n.locale}}
+          </div>
+          <div class="mb-3">
+            {{$t('Hello')}}
+          </div>
+          <locale-select></locale-select>
+        </div>
+      </v-layout>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name: 'App',
+  data () {
+    return {
+    }
+  },
+  i18n: {
+    messages: {
+    "en": {
+      "Hello": "Hello"
+    },
+    "de": {
+      "Hello": "Hallo"
+    }
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
